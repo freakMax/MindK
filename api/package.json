@@ -1,5 +1,26 @@
 {
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "youngsters",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freakMax/MindK.git"
+  },
+  "keywords": [
+    "youngsters"
+  ],
+  "author": "freakMax",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freakMax/MindK/issues"
+  },
+  "homepage": "https://github.com/freakMax/MindK#readme"
 }
