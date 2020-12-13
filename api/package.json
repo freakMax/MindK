@@ -6,9 +6,12 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  },
   "scripts": {
-    "test": "-"
+    "test": "-",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
