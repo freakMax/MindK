@@ -1,0 +1,16 @@
+.header{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #3d1e6d ;
+    padding:10px 0px;
+}
+.line{
+    position: absolute;
+    bottom: -1%;
+    z-index: 999;
+    display: block;
+    width: 100%;
+    border: 1px solid white;
+}

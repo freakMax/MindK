@@ -1,8 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './containers/Header';
+import Main from './containers/Main';
 
 function App() {
-  return <div>Youngsters</div>;
+  return (
+    <>
+      <Header />
+      <Main />
+    </>
+  );
 }
 
 export default App;
