@@ -1,8 +1,8 @@
 import './Button.css'
 
-function Button() {
+function Button(props) {
     return (
-        <div className='button'>
+        <div className='button' onClick={props.onClick}>
             <span className='button-text'>Add Article</span>
         </div>
     );

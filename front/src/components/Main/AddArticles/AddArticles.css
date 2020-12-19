@@ -1,0 +1,10 @@
+.formAdd{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+.addText{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 550;
+}

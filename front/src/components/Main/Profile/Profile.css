@@ -1,0 +1,16 @@
+
+.form{
+    margin-top: 50px;
+}
+
+.itemForm{
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+.formText{
+    font-size: 18px;
+    font-weight: 550;
+    text-align: center;
+}
