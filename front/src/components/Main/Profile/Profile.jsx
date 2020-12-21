@@ -1,13 +1,10 @@
 import './Profile.css'
 
-function Profile(props) {
+function Profile({setData}) {
 
     const updateProfile = (e) =>{
         e.preventDefault()
-        const formName = document.querySelector('.formName')
-        const formSurname = document.querySelector('.formSurname')
-
-        props.updateData(formName.value,formSurname.value)
+        setData({name:e.target[0].value,surname:e.target[1].value})
     }
 
     return (
@@ -15,9 +12,9 @@ function Profile(props) {
         <div className='formProfile'>
             <form action="" onSubmit={updateProfile} className='form'>
                 <p className='formText'>New name</p>
-                <input type="text" className='formName itemForm'/>
+                <input type="text" className='itemForm' name='setName'/>
                 <p className='formText'>New surname</p>
-                <input type="text" className='formSurname itemForm'/>
+                <input type="text" className='itemForm' name='setSurname'/>
                 <button type='submit' className='profilebutton itemForm'>Rename</button>
             </form>
         </div>

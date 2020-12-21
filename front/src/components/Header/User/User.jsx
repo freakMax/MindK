@@ -1,15 +1,15 @@
 import './User.css'
-import React, {useState} from 'react';
+import React from 'react';
 import img_logo from './kurt-cobain.jpg'
 
-function User(props) {
+function User({data,userHandler}) {
     return (
         <div className='user'>
             <img src={img_logo} alt="Logo" className="logo-img"/>
-            <span className='user-text'>{props.name} {props.surname}</span>
+            <span className='user-text'>{data.name} {data.surname}</span>
             <div className='menu-block'>
                 <ul className='menu-ul'>
-                    <li className='menu__text'  onClick={props.onClick}>Profile</li>
+                    <li className='menu__text' onClick={userHandler}>Profile</li>
                     <li className='menu__text'>Log Out</li>
                 </ul>
             </div>
