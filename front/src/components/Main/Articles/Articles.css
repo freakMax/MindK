@@ -1,0 +1,10 @@
+.article{
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    background: #ccc;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

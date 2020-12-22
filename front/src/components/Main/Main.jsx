@@ -1,5 +1,11 @@
-function Main() {
-    return <></>
+
+
+function Main({element}) {
+    return (
+    <>
+        {element}
+    </>
+    )
 }
 
 export default Main;

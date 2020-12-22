@@ -6,6 +6,7 @@
     -moz-border-radius:10px;
     -ms-border-radius:10px;
     -o-border-radius:10px;
+    cursor: pointer;
 }
 .button-text{
     font-size: 18px;
