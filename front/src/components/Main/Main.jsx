@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 
 function Main({element}) {
@@ -6,6 +7,11 @@ function Main({element}) {
         {element}
     </>
     )
+}
+
+
+Main.propTypes = {
+    element: PropTypes.object.isRequired
 }
 
 export default Main;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Header.css'
 import Logo from './Logo/Logo'
 import Button from './Button/Button'
@@ -12,15 +13,22 @@ function Header({data,setElement,setData}) {
     const buttonHandler = () => setElement(<AddArticles/>)
     const userHandler = () => setElement(<Profile setData={setData}/>)
 
+
     return (
         <div className="header">
-            <Logo onClick={logoHandler}/>
-            <Button onClick={buttonHandler}/>
+            <Logo logoHandler={logoHandler} />
+            <Button buttonHandler={buttonHandler} />
             <User userHandler={userHandler} data={data} />
             <div className='line'>
             </div>
         </div>
     );
+}
+
+Header.propTypes = {
+    data: PropTypes.object.isRequired,
+    setElement: PropTypes.func.isRequired,
+    setData: PropTypes.func.isRequired
 }
 
 export default Header;

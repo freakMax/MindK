@@ -1,6 +1,6 @@
 import './AddArticles.css'
 
-function AddArticles(props) {
+function AddArticles() {
     return (
         <>
         <div>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './User.css'
 import React from 'react';
 import img_logo from './kurt-cobain.jpg'
@@ -15,6 +16,11 @@ function User({data,userHandler}) {
             </div>
         </div>
     );
+}
+
+User.propTypes = {
+    data: PropTypes.object.isRequired,
+    userHandler: PropTypes.func.isRequired
 }
 
 export default User;

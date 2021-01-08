@@ -1,8 +1,8 @@
 import './Button.css'
 
-function Button() {
+function Button({buttonHandler}) {
     return (
-        <div className='button'>
+        <div className='button' onClick={buttonHandler}>
             <span className='button-text'>Add Article</span>
         </div>
     );
