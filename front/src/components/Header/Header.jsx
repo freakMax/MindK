@@ -26,7 +26,10 @@ function Header({data,setElement,setData}) {
 }
 
 Header.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        surname: PropTypes.string.isRequired
+    }),
     setElement: PropTypes.func.isRequired,
     setData: PropTypes.func.isRequired
 }

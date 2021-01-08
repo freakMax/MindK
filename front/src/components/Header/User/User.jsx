@@ -19,7 +19,10 @@ function User({data,userHandler}) {
 }
 
 User.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        surname:PropTypes.string.isRequired
+    }),
     userHandler: PropTypes.func.isRequired
 }
 
