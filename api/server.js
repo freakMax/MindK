@@ -4,7 +4,9 @@ const config = require('./config.js')
 const PORT = config.getPort('PORT',3000)
 const postsRouter = require('./routes/posts.router');
 
+app.use(express.json())
 app.use('/posts', postsRouter);
+
 
 app.use((err,req,res,next) => {
     console.log(err.stack);
