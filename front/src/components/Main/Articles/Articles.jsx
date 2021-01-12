@@ -1,6 +1,6 @@
 import './Articles.css'
 
-function Articles(props) {
+function Articles() {
     return (
         <>
         <div className='article'>
