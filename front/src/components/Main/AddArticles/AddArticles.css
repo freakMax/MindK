@@ -1,10 +1,16 @@
-.formAdd{
+.form{
+    text-align: center;
+}
+.formAddbtn{
     display: block;
     margin: auto;
-    margin-top: 10px;
+    color:white;
+    background: #8dbdff;
+}
+.formAdd{
+    margin-bottom: 10px;
 }
 .addText{
-    text-align: center;
     font-size: 18px;
-    font-weight: 550;
+    font-weight: 650;
 }

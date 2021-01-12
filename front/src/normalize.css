@@ -7,7 +7,7 @@ html {
      ========================================================================== */
   
     button:active, button:focus {
-      outline: none;
+      outline: none !important;
     }
     button::-moz-focus-inner {
       border: 0;

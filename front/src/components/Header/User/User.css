@@ -12,6 +12,7 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    border: 3px solid #8dbdff;
 }
 .user-text{
     display: block;
@@ -27,7 +28,7 @@
     position: absolute;
     right: 0;
     bottom: -80px;
-    background-color: #3d1e6d;
+    background-color: #3b7dd8;
     width: 150px;
 }
 .active{
