@@ -19,7 +19,7 @@
     font-size: 18px;
     font-weight: 550;
     color: white;
-    margin-left: 10px;
+    /* padding-left: 10px; */
     cursor: pointer;
     user-select: none;
 }
@@ -27,9 +27,10 @@
     display: none;
     position: absolute;
     right: 0;
-    bottom: -80px;
+    bottom: -70px;
     background-color: #3b7dd8;
     width: 150px;
+    height: 60px;
 }
 .active{
     display: block;
@@ -40,6 +41,7 @@
     text-align: center;
 }
 .menu__text{
+    padding-top: 4px;
     text-align: center;
     display: block;
     list-style: none;
@@ -47,7 +49,5 @@
     font-weight: 550;
     letter-spacing: .5;
     color: white;
-    margin-top: 5px;
-    margin-right: 35px;
     cursor: pointer;
 }

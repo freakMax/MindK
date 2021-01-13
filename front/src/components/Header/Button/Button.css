@@ -1,12 +1,11 @@
 .button{
     padding: 10px 20px;
     background-color: #8dbdff ;
-    border-radius:10px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    -ms-border-radius:10px;
-    -o-border-radius:10px;
-    cursor: pointer;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
 }
 .button-text{
     font-size: 18px;
