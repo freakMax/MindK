@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const config = require('./config.js')
-const PORT = config.getPort('PORT',3000)
+const PORT = 3000
 const postsRouter = require('./routes/posts.router');
+const authRouter = require('./routes/auth.router')
 
 app.use(express.json())
 app.use('/posts', postsRouter);
-
+app.use('/auth', authRouter)
 
 app.use((err,req,res,next) => {
     console.log(err.stack);

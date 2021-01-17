@@ -1,9 +1,3 @@
-require('dotenv').config()
-
-class Config {
-    getPort(port,defaultValue){
-        return process.env[port] || defaultValue
-    }
+module.exports = {
+    secret:'SECRET_KEY'
 }
-
-module.exports = new Config()
