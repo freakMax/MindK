@@ -2,13 +2,14 @@ const db = require('../db')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
-const {secret} = require('../config')
+const config = require('../config')
+const mailer = require('../nodemailer')
 
 const generateToken = (id) =>{
     const payload = {
         id
     }
-    return jwt.sign(payload, secret, {expiresIn:'24h'})
+    return jwt.sign(payload, config.getValue('secret'), {expiresIn:'24h'})
 }
 
 class authController{
@@ -20,11 +21,21 @@ class authController{
         const {login,password} = req.body
         const candidate = await db.query('SELECT * FROM users WHERE login = $1',[login])
         if(candidate.rowCount){
-            return res.status(400).json('Пользыватель с таким именем уже существует')
+            return res.status(400).json('Пользователь с таким именем уже существует')
         }else{
             const hashPassword = bcrypt.hashSync(password, 5)
-            const newUser = await db.query('INSERT INTO users (login,password) VALUES ($1,$2)',[login,hashPassword])
-            res.json({message:'Пользователь успешно зарегистрирован'})
+            await db.query('INSERT INTO users (login,password,isAccepted) VALUES ($1,$2,false)',[login,hashPassword])
+            const link = `https://localhost:3000/auth/checkAccept/${login}`
+            const message = {
+                to: login,
+                subject: 'Вы успешно зарегистрировались в Youngsters',
+                html: `
+                <h1>Для подтверждения email нажмите на ссылку -></h1>
+                <a href="${link}">Подтверждение e-mail</a>
+                `
+            }
+            mailer(message)
+            res.json({message:'Пользователь успешно зарегистрирован,проверьте Вашу почту и подтвердите регистрацию'})
         }
     }
     async login(req,res){
@@ -40,9 +51,23 @@ class authController{
         const token = generateToken(user.rows[0].id)
         res.json({token:token})
     }
-    async getUsers(req,res){
-        const users = await db.query('SELECT * FROM users')
-        res.json(users)
+    async checkAccept(req,res){
+        try{
+            const login = req.params[0]
+            const candidate = await db.query('SELECT * FROM users WHERE login = $1',[login])
+            if(!candidate.rowCount){
+                return res.status(400).json('Такого пользователя не существует!')
+            }else{
+            if(!candidate.isAccepted){
+                return res.status(400).json('Вы уже подтвердили e-mail!')
+            }
+            await db.query(`UPDATE users set isAccepted = true where login = $1 RETURNING *`, [login])
+            res.json('Вы успешно подтвердили почту!')
+            }
+        }
+        catch(e){
+            res.json(e)
+        }
     }
 }
 

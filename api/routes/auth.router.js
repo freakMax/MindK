@@ -9,7 +9,7 @@ router.post('/registration', [
     check('password','Пароль пользователя не должно быть пустым').notEmpty()
 ],authController.registration)
 router.post('/login', authController.login)
-router.get('/users', authMiddleware,authController.getUsers)
+router.get('/checkAccept/*', authController.checkAccept)
 
 
 module.exports = router; 

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 3000
+const config = require('./config')
+const PORT = config.getValue('PORT')
 const postsRouter = require('./routes/posts.router');
 const authRouter = require('./routes/auth.router')
 
