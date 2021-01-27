@@ -1,6 +1,7 @@
 
 .form{
     margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .itemForm{
@@ -26,4 +27,5 @@
     padding: 8px 16px;
     font-size: 16px;
     min-width: 100px;
+    box-shadow: 0 5px 0 #3C93D5;
 }

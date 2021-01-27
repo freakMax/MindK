@@ -6,3 +6,6 @@
     letter-spacing: .7;
     cursor: pointer;
 }
+a{
+    text-decoration: none;
+}

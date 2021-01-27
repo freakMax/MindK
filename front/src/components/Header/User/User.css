@@ -23,31 +23,3 @@
     cursor: pointer;
     user-select: none;
 }
-.menu-block{
-    display: none;
-    position: absolute;
-    right: 0;
-    bottom: -70px;
-    background-color: #3b7dd8;
-    width: 150px;
-    height: 60px;
-}
-.active{
-    display: block;
-}
-
-.menu-ul{
-    display: block;
-    text-align: center;
-}
-.menu__text{
-    padding-top: 4px;
-    text-align: center;
-    display: block;
-    list-style: none;
-    font-size: 16px;
-    font-weight: 550;
-    letter-spacing: .5;
-    color: white;
-    cursor: pointer;
-}
