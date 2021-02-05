@@ -1,7 +1,19 @@
-.form{
+.reg-div{
     text-align: center;
+    margin: auto;
 }
-.formAddbtn{
+.reg-input{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.reg-text{
+    font-size: 16px;
+    font-weight: 550;
+    margin-top: 10px;
+}
+.reg-btn{
     display: block;
     margin: auto;
     appearance: none;
@@ -13,11 +25,4 @@
     font-size: 16px;
     min-width: 100px;
     box-shadow: 0 5px 0 #3C93D5;
-}
-.formAdd{
-    margin-bottom: 10px;
-}
-.addText{
-    font-size: 18px;
-    font-weight: 650;
 }

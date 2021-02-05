@@ -1,16 +1,12 @@
 import './Logo.css'
-import PropTypes from 'prop-types';
 
-function Logo({logoHandler}) {
+function Logo() {
     return (
-        <div className='logo' onClick={logoHandler}>
+        <div className='logo'>
             <span className='logo-text'>Youngsters</span>
         </div>
     );
 }
 
-Logo.propTypes = {
-    logoHandler: PropTypes.func.isRequired
-}
 
 export default Logo;

@@ -5,6 +5,7 @@
     align-items: center;
     background-color:  #3b7dd8 ;
     padding:10px 0px;
+    height: 70px;
 }
 .line{
     position: absolute;

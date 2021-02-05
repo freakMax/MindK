@@ -2,28 +2,22 @@ import PropTypes from 'prop-types';
 import './User.css'
 import React from 'react';
 import img_logo from './kurt-cobain.jpg'
+import {Link} from 'react-router-dom'
 
-function User({data,userHandler}) {
+function User({username}) {
     return (
         <div className='user'>
             <img src={img_logo} alt="Logo" className="logo-img"/>
-            <span className='user-text'>{data.name} {data.surname}</span>
-            <div className='menu-block'>
-                <ul className='menu-ul'>
-                    <li className='menu__text' onClick={userHandler}>Profile</li>
-                    <li className='menu__text'>Log Out</li>
-                </ul>
-            </div>
+            <Link to='/profile'><span className='user-text'>{username.name} {username.surname}</span></Link>
         </div>
     );
 }
 
 User.propTypes = {
-    data: PropTypes.shape({
+    username: PropTypes.shape({
         name: PropTypes.string.isRequired,
         surname:PropTypes.string.isRequired
-    }),
-    userHandler: PropTypes.func.isRequired
+    })
 }
 
 export default User;

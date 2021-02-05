@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import './Profile.css'
+import {Link} from 'react-router-dom'
 
 function Profile({setData}) {
 
@@ -18,6 +19,7 @@ function Profile({setData}) {
                 <input type="text" className='itemForm' name='setSurname'/>
                 <button type='submit' className='profilebutton itemForm'>Rename</button>
             </form>
+            <Link to='/auth'><button type='submit' className='reg-btn'>Log Out</button></Link>
         </div>
         </>
     )

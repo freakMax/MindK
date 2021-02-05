@@ -35,6 +35,9 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
+button{
+  font-weight: 550;
+}
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
@@ -60,7 +63,7 @@ article > * + * {
 
 /* Наследуем шрифты для инпутов и кнопок */
 input,
-button,
+button
 textarea,
 select {
   font: inherit;

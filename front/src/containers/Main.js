@@ -2,20 +2,31 @@ import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import Main from '../components/Main/Main'
 import Header from '../components/Header/Header'
 import React, {useState} from 'react';
-import Articles from '../components/Main/Articles/Articles'
 
 function MainContainer() {
-
-    const [element, setElement] = useState(<Articles />);
-    const [data , setData] = useState({name:'User',surname:'Name'});
+    const [username , setUsername] = useState({name:'User',surname:'Name'});
+    const [posts, setPosts] = useState([
+        {
+            title: 'Post 1',
+            text: 'TEXT'
+        },
+        {
+            title: 'Post 2',
+            text: 'TEXT'
+        },
+        {
+            title: 'Post 3',
+            text: 'TEXT'
+        }
+    ])
 
 
     return (
         <> 
             <ErrorBoundary>
-                <Header  data={data} setElement={setElement} setData={setData}/>
+                <Header  username={username}/>
             </ErrorBoundary>
-            <Main  element={element} />
+            <Main setUsername={setUsername} posts={posts} setPosts={setPosts}/>
         </>
     );
 }
