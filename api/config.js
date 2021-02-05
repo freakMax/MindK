@@ -1,9 +1,9 @@
 require('dotenv').config()
 
-class Config {
-    getPort(port,defaultValue){
-        return process.env[port] || defaultValue
+class config{
+    getValue(path,defaultValue=''){
+        return process.env[path] || defaultValue
     }
-}
+} 
 
-module.exports = new Config()
+module.exports = new config()
