@@ -1,9 +1,10 @@
-const db = require('../db')
+const db = require('../services/db')
 
 class postsController{
     async addPost(req,res){
         const {title,content} = req.body
-        const newPost = await db.query('INSERT INTO posts (title,content) values ($1,$2) RETURNING *',[title,content])
+        const id = req.user
+        const newPost = await db.query('INSERT INTO posts (title,content,user_id) values ($1,$2,$3) RETURNING *',[title,content,id])
         res.json(newPost.rows[0])
     }
     async getAllPost(req,res){
@@ -18,7 +19,6 @@ class postsController{
     async updatePost(req,res){
         const {id,title,content} = req.body
         const updatedPost = await db.query('UPDATE posts set title = $1,content = $2 where id = $3 RETURNING *',[title,content,id])
-        res.json(updatedPost.rows[0])
     }
     async deletePost(req,res){
         const id = req.params.id
