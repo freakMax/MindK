@@ -17,8 +17,9 @@ class postsController{
         res.json(post.rows)
     }
     async updatePost(req,res){
-        const {id,title,content} = req.body
-        const updatedPost = await db.query('UPDATE posts set title = $1,content = $2 where id = $3 RETURNING *',[title,content,id])
+        const {title,content} = req.body
+        const id = req.params.id
+        await db.query('UPDATE posts set title = $1,content = $2 where id = $3 RETURNING *',[title,content,id])
     }
     async deletePost(req,res){
         const id = req.params.id
