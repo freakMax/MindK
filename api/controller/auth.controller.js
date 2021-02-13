@@ -1,9 +1,9 @@
-const db = require('../db')
+const db = require('../services/db')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
 const config = require('../config')
-const mailer = require('../nodemailer')
+const mailer = require('../services/nodemailer')
 
 const generateToken = (id) =>{
     const payload = {
