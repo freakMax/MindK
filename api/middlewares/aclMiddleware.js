@@ -10,14 +10,16 @@ module.exports = function (limits){
         const currentPermissions = permissions[role.rows[0].role]
 
         for await(const limit of limits){
-            if(limit.userPost){
+            if(limit.ownerInfo){
                 const post = await db.query(`SELECT ${limit.ownerInfo.column} FROM ${limit.ownerInfo.table} WHERE id = $1`,[postId])
                 if(post.rows[0].user_id == userId){
                     isHavePermission = true
+                    break;
                 }else{
                     if(currentPermissions.includes(limit.permission)){
                         console.log('adm')
                         isHavePermission = true
+                        break;
                     }
                 }
             }
