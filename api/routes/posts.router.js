@@ -9,11 +9,11 @@ router.get('/', postsController.getAllPost);
 router.get('/:id', postsController.getOnePost);
 router.put('/:id', [authMiddleware,aclMiddleware([
     { permission: 'updateAnyPost' },
-    { permission: 'updateOwnPost', userPost: {table: 'posts', column: 'user_id'}}])],
+    { permission: 'updateOwnPost', ownerInfo: {table: 'posts', column: 'user_id'}}])],
     postsController.updatePost);
 router.delete('/:id', [authMiddleware,aclMiddleware([
     { permission: 'deleteAnyPost' },
-    { permission: 'deleteOwnPost', userPost: {table: 'posts', column: 'user_id'}}])],
+    { permission: 'deleteOwnPost', ownerInfo: {table: 'posts', column: 'user_id'}}])],
     postsController.deletePost);
 
 module.exports = router; 

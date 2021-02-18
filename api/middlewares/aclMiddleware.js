@@ -8,30 +8,25 @@ module.exports = function (limits){
         const postId = req.params.id
         const role = await db.query('SELECT role FROM users WHERE id = $1',[userId])
         const currentPermissions = permissions[role.rows[0].role]
-        limits.forEach(async(limit) => {
+
+        for await(const limit of limits){
             if(limit.userPost){
-                const post = await db.query(`SELECT ${limit.userPost.column} FROM ${limit.userPost.table} WHERE id = $1`,[postId])
+                const post = await db.query(`SELECT ${limit.ownerInfo.column} FROM ${limit.ownerInfo.table} WHERE id = $1`,[postId])
                 if(post.rows[0].user_id == userId){
-                    console.log('owner')
                     isHavePermission = true
-                    if(isHavePermission){
-                        next()
-                    }else{
-                        console.log('not your')
-                    }
                 }else{
                     if(currentPermissions.includes(limit.permission)){
                         console.log('adm')
                         isHavePermission = true
-                        if(isHavePermission){
-                            next()
-                        }else{
-                            console.log('not your')
-                        }
                     }
                 }
             }
-        });
+        }
+        if(isHavePermission){
+            next()
+        }
+        else{
+            res.status(401).json('not your')
+        }
     }
 }
-
