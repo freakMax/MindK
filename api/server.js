@@ -10,6 +10,7 @@ const authRouter = require('./routes/auth.router')
 app.use(express.json())
 app.use('/posts', postsRouter)
 app.use('/auth', authRouter)
+app.use('/',(req,res)=> res.send('Youngsters'))
 
 // app.use(passport.initialize());
 // app.use(passport.session());
