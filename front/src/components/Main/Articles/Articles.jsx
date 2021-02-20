@@ -7,7 +7,7 @@ function Articles({posts}) {
         <>
         <div className='article-container'>
             {
-                posts.map((item,index) => <Article title={item.title} text={item.text} key={index}/>)
+                posts.map((item,index) => <Article title={item.title} content={item.content} key={index}/>)
             }
         </div>
         </>

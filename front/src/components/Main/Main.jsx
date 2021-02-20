@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types';
-import Articles from './Articles/Articles';
 import AddArticles from './AddArticles/AddArticles';
 import Profile from './Profile/Profile';
+import PostList from '../../containers/PostList'
 import {Switch,Route,Redirect} from 'react-router-dom'
 
 
-function Main({setUsername,posts,setPosts}) {
-
-
-
+function Main({setUsername}) {
     return (
         <Switch>
-            <Route exact path="/posts" >
-                <Articles posts={posts}/>
+            <Route exact path="/" >
+                <PostList />
             </Route>
             <Route exact path="/addArticles">
-                <AddArticles setPosts={setPosts} posts={posts}/>
+                <AddArticles />
             </Route>
             <Route exact path="/profile"> 
                 <Profile setData={setUsername} />
@@ -28,8 +25,6 @@ function Main({setUsername,posts,setPosts}) {
 
 Main.propTypes = {
     setUsername: PropTypes.func.isRequired,
-    posts: PropTypes.array.isRequired,
-    setPosts: PropTypes.func.isRequired
 }
 
 

@@ -5,28 +5,13 @@ import React, {useState} from 'react';
 
 function MainContainer() {
     const [username , setUsername] = useState({name:'User',surname:'Name'});
-    const [posts, setPosts] = useState([
-        {
-            title: 'Post 1',
-            text: 'TEXT'
-        },
-        {
-            title: 'Post 2',
-            text: 'TEXT'
-        },
-        {
-            title: 'Post 3',
-            text: 'TEXT'
-        }
-    ])
-
 
     return (
         <> 
             <ErrorBoundary>
                 <Header  username={username}/>
             </ErrorBoundary>
-            <Main setUsername={setUsername} posts={posts} />
+            <Main setUsername={setUsername} />
         </>
     );
 }
