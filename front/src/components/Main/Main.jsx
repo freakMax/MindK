@@ -7,6 +7,8 @@ import {Switch,Route,Redirect} from 'react-router-dom'
 
 function Main({setUsername,posts,setPosts}) {
 
+
+
     return (
         <Switch>
             <Route exact path="/posts" >

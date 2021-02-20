@@ -26,7 +26,7 @@ function MainContainer() {
             <ErrorBoundary>
                 <Header  username={username}/>
             </ErrorBoundary>
-            <Main setUsername={setUsername} posts={posts} setPosts={setPosts}/>
+            <Main setUsername={setUsername} posts={posts} />
         </>
     );
 }
