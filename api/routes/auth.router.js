@@ -9,6 +9,8 @@ router.post('/registration', [
 ],authController.registration)
 router.post('/login', authController.login)
 router.get('/checkAccept/*', authController.checkAccept)
+router.post('/google-login', authController.GoogleLogin)
+router.post('/facebook-login', authController.FacebookLogin)
 
 
 module.exports = router; 

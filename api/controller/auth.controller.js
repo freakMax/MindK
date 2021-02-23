@@ -4,12 +4,14 @@ const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
 const config = require('../config')
 const mailer = require('../services/nodemailer')
+const {OAuth2Client} = require('google-auth-library')
+const fetch = require('node-fetch')
 
-const generateToken = (id) =>{
-    const payload = {
-        id
-    }
-    return jwt.sign(payload, config.getValue('secret'), {expiresIn:'24h'})
+const client = new OAuth2Client('356441273372-3mdoiujfbekjbsm2ouocue1bhuia0euh.apps.googleusercontent.com')
+
+const generateToken = (...info) => {
+    const payload = { ...info }
+    return jwt.sign(payload, config.getValue('secret'), {expiresIn: '24h'})
 }
 
 class authController{
@@ -68,6 +70,51 @@ class authController{
         catch(e){
             res.json(e)
         }
+    }
+    async GoogleLogin(req,res){
+            const { tokenId } = req.body
+            client.verifyIdToken({idToken:tokenId,audience:'356441273372-3mdoiujfbekjbsm2ouocue1bhuia0euh.apps.googleusercontent.com'})
+            .then(async response => {
+                const{email_verified,email} = response.payload
+                if(email_verified){
+                    const user = await db.query('SELECT * FROM users WHERE login = $1',[email])
+                    if(user.rowCount){
+                        const token = generateToken(user.rows[0].id)
+                        res.send(`Old user ${token}`)
+                    }else{
+                        const hashPassword = bcrypt.hashSync(tokenId,5)
+                        await db.query(
+                            `INSERT INTO users (login, password, isAccepted, role) values ($1, $2, true, 'user') RETURNING *`,
+                            [email, hashPassword])
+                        const newUser = await db.query('SELECT * FROM users WHERE login = $1',[email])
+                        const token = generateToken(newUser.rows[0].id)
+                        res.send(`New user ${token}`)
+                    }
+                }
+            })
+    }
+    async FacebookLogin(req,res){
+        const { accessToken, userID } = req.body
+        let urlGraphFB = `https://graph.facebook.com/v2.11/${userID}/?fields=id,email&access_token=${accessToken}`
+        fetch(urlGraphFB, {
+            method: 'GET',
+        }).then(res => res.json())
+        .then(async response => {
+            const {email} = response
+            const user = await db.query('SELECT * FROM users WHERE login = $1',[email])
+            if(user.rowCount){
+                const token = generateToken(user.rows[0].id)
+                res.send(`Old user ${token}`)
+            }else{
+                const hashPassword = bcrypt.hashSync(tokenId,5)
+                await db.query(
+                    `INSERT INTO users (login, password, isAccepted, role) values ($1, $2, true, 'user') RETURNING *`,
+                    [email, hashPassword])
+                const newUser = await db.query('SELECT * FROM users WHERE login = $1',[email])
+                const token = generateToken(newUser.rows[0].id)
+                res.send(`New user ${token}`)
+            }
+        })
     }
 }
 
