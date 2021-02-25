@@ -30,7 +30,7 @@ function Login() {
         <>
         <div className='reg-div'>
             <GoogleLogin
-                clientId="356441273372-3mdoiujfbekjbsm2ouocue1bhuia0euh.apps.googleusercontent.com"
+                clientId="356441273372-.apps.googleusercontent.com"
                 buttonText="Google"
                 onSuccess={responseSuccessGoogle}
                 onFailure={responseErrorGoogle}
