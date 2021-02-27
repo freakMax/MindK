@@ -9,7 +9,7 @@ class postsController{
     }
     async getAllPost(req,res){
         const allPosts = await db.query('SELECT * FROM posts')
-        res.send(allPosts.rows)
+        res.json(allPosts.rows)
     }
     async getOnePost(req,res){
         const id = req.params.id
