@@ -4,9 +4,6 @@ const config = require('./config')
 const PORT = config.getValue('PORT')
 const postsRouter = require('./routes/posts.router');
 const authRouter = require('./routes/auth.router')
-<<<<<<< HEAD
-// const passport = require('passport')
-// require('./services/auth/passport-setup')
 
 app.use(express.json())
 app.use((req, res, next) => {
