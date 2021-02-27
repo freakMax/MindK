@@ -1,0 +1,12 @@
+.article{
+    padding-top: 20px;
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    background: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid #8dbdff;
+}

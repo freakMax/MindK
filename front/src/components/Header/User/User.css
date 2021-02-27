@@ -1,0 +1,25 @@
+.user{
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.logo-img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 3px solid #8dbdff;
+}
+.user-text{
+    display: block;
+    font-size: 18px;
+    font-weight: 550;
+    color: white;
+    /* padding-left: 10px; */
+    cursor: pointer;
+    user-select: none;
+}

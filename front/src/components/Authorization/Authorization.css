@@ -1,0 +1,25 @@
+.log-text{
+    padding-top: 100px;
+    padding-bottom: 30px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 550;
+    width: 500px;
+}
+.log-btn{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 550;
+    color: white;
+    background-color: #3b7dd8;
+    margin: auto;
+    width: 200px;
+    height: 75px;
+    padding-top: 20px;
+    border-radius:20px;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
+}

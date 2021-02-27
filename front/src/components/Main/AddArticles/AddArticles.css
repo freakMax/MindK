@@ -1,0 +1,23 @@
+.form{
+    text-align: center;
+}
+.formAddbtn{
+    display: block;
+    margin: auto;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    min-width: 100px;
+    box-shadow: 0 5px 0 #3C93D5;
+}
+.formAdd{
+    margin-bottom: 10px;
+}
+.addText{
+    font-size: 18px;
+    font-weight: 650;
+}
