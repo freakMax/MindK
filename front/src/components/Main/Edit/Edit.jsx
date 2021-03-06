@@ -1,26 +1,29 @@
-import './AddArticles.css'
+import {getOnePost,updatePost} from '../../../Requests/requests'
+import { useQuery } from 'react-query'
+
 import {Formik,Form,Field} from 'formik'
 import * as Yup from 'yup'
-import {createPost} from '../../../Requests/requests'
 
-
-function AddArticles() {
+function Edit({routes}) {
+    const postId = routes.match.params.id
+    const {data:response} = useQuery('post',() => getOnePost(postId))
+    const post = response.data[0]
     const initialValues = {
-        title:'',
-        content:''
+        title:post.title,
+        content:post.content
     }
     const validationSchema = Yup.object().shape({
         title:Yup.string().min(3,'Too short').max(30, 'Too long').required('Required'),
         content:Yup.string().min(1,'Too short').max(150, 'Too long').required('Reuired')
     })
     const onSubmit = data => {
-        console.log(data)
-        createPost(data)
+        updatePost(postId,data)
     }
 
     return (
         <>
             <Formik
+                enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
@@ -66,16 +69,13 @@ function AddArticles() {
                                     <span className='radio-text'>Only me</span>
                                 </div>
                         </div>
-
                         <button type="submit">Submit</button>
                     </Form>
                 )}
             </Formik>
         </>
     )
-    
 }
 
 
-
-export default AddArticles;
+export default Edit;
