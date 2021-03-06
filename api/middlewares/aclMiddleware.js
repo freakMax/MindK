@@ -14,12 +14,10 @@ module.exports = function (limits){
                 const post = await db.query(`SELECT ${limit.ownerInfo.column} FROM ${limit.ownerInfo.table} WHERE id = $1`,[postId])
                 if(post.rows[0].user_id == userId){
                     isHavePermission = true
-                    break;
                 }else{
                     if(currentPermissions.includes(limit.permission)){
                         console.log('adm')
                         isHavePermission = true
-                        break;
                     }
                 }
             }
