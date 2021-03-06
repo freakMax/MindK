@@ -11,6 +11,8 @@ class postsController{
         const limit = req.query.limit || 10
         const allPosts = await db.query('SELECT * FROM posts limit $1',[limit])
         res.send(allPosts.rows)
+
+
     }
     async getOnePost(req,res){
         const id = req.params.id
