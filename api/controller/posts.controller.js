@@ -5,7 +5,7 @@ class postsController{
         const {title,content,access} = req.body
         const id = req.user
         const newPost = await db.query('INSERT INTO posts (title,content,user_id,access) values ($1,$2,$3,$4) RETURNING *',[title,content,id,access])
-        res.json(newPost.rows[0])
+        console.log(newPost.rows[0])
     }
     async getAllPost(req,res){
         const limit = req.query.limit || 10
