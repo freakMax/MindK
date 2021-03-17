@@ -10,7 +10,8 @@ function Header({username}) {
     return (
         <div className="header">
             <Link to='/posts'><Logo/></Link>
-            <Link to='/addArticles'><Button/></Link>
+            {/* <Link to='/addArticles'><Button/></Link> */}
+            <Button />
             <User username={username} />
             <div className='line'>
             </div>
