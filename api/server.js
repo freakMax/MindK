@@ -4,6 +4,7 @@ const config = require('./config')
 const PORT = config.getValue('PORT')
 const postsRouter = require('./routes/posts.router');
 const authRouter = require('./routes/auth.router')
+const userRouter = require('./routes/user.router')
 
 app.use(express.json())
 app.use((req, res, next) => {
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 })
 app.use('/posts', postsRouter)
 app.use('/auth', authRouter)
+app.use('/users', userRouter)
 app.use('/',(req,res)=> res.send('Youngsters'))
 
 
