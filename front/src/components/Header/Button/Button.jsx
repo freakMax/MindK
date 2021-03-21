@@ -12,7 +12,7 @@ function Button() {
         <div className='button' onClick={handleOpen}>
             <span className='button-text'>Add Article</span>
         </div>   
-        {open ? <Edit open={open} handleClose={handleClose}/>:null}
+        {open && <Edit open={open} handleClose={handleClose}/>}
         </>
         );
 }

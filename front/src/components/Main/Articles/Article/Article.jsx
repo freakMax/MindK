@@ -10,7 +10,6 @@ function Article({title,content,id}) {
                 <p className='title'>{title}</p>
                 <p className='text'>{content}</p>
                 {<ArticleHandler id={id}/>}
-                {/* <Link to={`/edit/${id}`}>Edit</Link> */}
             </div>
         </>
     )
