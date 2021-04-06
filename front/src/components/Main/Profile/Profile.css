@@ -29,3 +29,13 @@
     min-width: 100px;
     box-shadow: 0 5px 0 #3C93D5;
 }
+.reg-btn{
+    margin-top: 10px;
+}
+.center{
+    margin: auto;
+}
+.image-block{
+    text-align: center;
+    margin-top: 10px;
+}
